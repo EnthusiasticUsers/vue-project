@@ -33,7 +33,9 @@
                 observeDOM:true
            })
             if (this.probeType===2 || this.probeType === 3) {
-                this.scroll.on('scroll', (position) => {
+                this.scroll.on('scr' +
+                    '' +
+                    'oll', (position) => {
                     this.$emit('scroll', position)
                 })
             }
