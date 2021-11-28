@@ -17,12 +17,12 @@
            <aside-right-menu :news="news"></aside-right-menu>
        </el-container>
        <!--主要食品-->
-       <el-main>
+       <el-main class="main">
           <commodity :goods="goods"></commodity>
        </el-main>
        <!--页脚-->
       <el-footer>
-          <footer-menu :menu="footerMenu"></footer-menu>
+          <footer-menu :menu="footerMenu" :qrcode="qrcode"></footer-menu>
       </el-footer>
    </el-container>
    </div>
@@ -130,125 +130,211 @@
                         "link":"http://www.baidu.com"
                     },
                 ],
-                goods: {
-                        "recommends":[
+                goods:[
                             {
-                                "name":"来自星星的猪肉脯...",
-                                "commit":"星空的美丽,你无法想象,那吃的呢",
-                                "price":20.99,
-                                "image":require("assets/goods/1.jpg"),
-                                "link":"http://baidu.com"
+                                "title": "好 物 推 荐",
+                                "color":"#409EFF",
+                                "message": "查看更多",
+                                "icon": "el-icon-d-arrow-right",
+                                "wares":[
+                                    {
+                                        "name":"来自星星的猪肉脯...",
+                                        "commit":"星空的美丽,你无法想象,那吃的呢",
+                                        "price":20.99,
+                                        "image":require("assets/goods/1.jpg"),
+                                        "link":"http://baidu.com"
+                                    },
+                                    {
+                                        "name":"来自星星的猪肉脯...",
+                                        "commit":"星空的美丽,你无法想象,那吃的呢",
+                                        "price":20.99,
+                                        "image":require("assets/goods/1.jpg"),
+                                        "link":"http://baidu.com"
+                                    },
+                                    {
+                                        "name":"来自星星的猪肉脯...",
+                                        "commit":"星空的美丽,你无法想象,那吃的呢",
+                                        "price":20.99,
+                                        "image":require("assets/goods/1.jpg"),
+                                        "link":"http://baidu.com"
+                                    },
+                                    {
+                                        "name":"来自星星的猪肉脯...",
+                                        "commit":"星空的美丽,你无法想象,那吃的呢",
+                                        "price":20.99,
+                                        "image":require("assets/goods/1.jpg"),
+                                        "link":"http://baidu.com"
+                                    },
+                                    {
+                                        "name":"来自星星的猪肉脯...",
+                                        "commit":"星空的美丽,你无法想象,那吃的呢",
+                                        "price":20.99,
+                                        "image":require("assets/goods/1.jpg"),
+                                        "link":"http://baidu.com"
+                                    },
+                                    {
+                                        "name":"来自星星的猪肉脯...",
+                                        "commit":"星空的美丽,你无法想象,那吃的呢",
+                                        "price":20.99,
+                                        "image":require("assets/goods/1.jpg"),
+                                        "link":"http://baidu.com"
+                                    },
+                                    {
+                                        "name":"来自星星的猪肉脯...",
+                                        "commit":"星空的美丽,你无法想象,那吃的呢",
+                                        "price":20.99,
+                                        "image":require("assets/goods/1.jpg"),
+                                        "link":"http://baidu.com"
+                                    },
+                                    {
+                                        "name":"来自星星的猪肉脯...",
+                                        "commit":"星空的美丽,你无法想象,那吃的呢",
+                                        "price":20.99,
+                                        "image":require("assets/goods/1.jpg"),
+                                        "link":"http://baidu.com"
+                                    }
+                                ]
                             },
                             {
-                                "name":"来自星星的猪肉脯...",
-                                "commit":"星空的美丽,你无法想象,那吃的呢",
-                                "price":20.99,
-                                "image":require("assets/goods/1.jpg"),
-                                "link":"http://baidu.com"
+                                "title": "猜 你 喜 欢",
+                                "color":"#67C23A",
+                                "message": "查看更多",
+                                "icon": "el-icon-d-arrow-right",
+                                "wares":[
+                                    {
+                                        "name":"正宗天津烤肉...",
+                                        "commit":"就问你,想要吗?那就来天津品尝吧",
+                                        "price":39.99,
+                                        "image":require("assets/goods/2.jpg"),
+                                        "link":"http://baidu.com"
+                                    },
+                                    {
+                                        "name":"正宗天津烤肉...",
+                                        "commit":"就问你,想要吗?那就来天津品尝吧",
+                                        "price":39.99,
+                                        "image":require("assets/goods/2.jpg"),
+                                        "link":"http://baidu.com"
+                                    },
+                                    {
+                                        "name":"正宗天津烤肉...",
+                                        "commit":"就问你,想要吗?那就来天津品尝吧",
+                                        "price":39.99,
+                                        "image":require("assets/goods/2.jpg"),
+                                        "link":"http://baidu.com"
+                                    },
+                                    {
+                                        "name":"正宗天津烤肉...",
+                                        "commit":"就问你,想要吗?那就来天津品尝吧",
+                                        "price":39.99,
+                                        "image":require("assets/goods/2.jpg"),
+                                        "link":"http://baidu.com"
+                                    },
+                                    {
+                                        "name":"正宗天津烤肉...",
+                                        "commit":"就问你,想要吗?那就来天津品尝吧",
+                                        "price":39.99,
+                                        "image":require("assets/goods/2.jpg"),
+                                        "link":"http://baidu.com"
+                                    },
+                                    {
+                                        "name":"正宗天津烤肉...",
+                                        "commit":"就问你,想要吗?那就来天津品尝吧",
+                                        "price":39.99,
+                                        "image":require("assets/goods/2.jpg"),
+                                        "link":"http://baidu.com"
+                                    },
+                                    {
+                                        "name":"正宗天津烤肉...",
+                                        "commit":"就问你,想要吗?那就来天津品尝吧",
+                                        "price":39.99,
+                                        "image":require("assets/goods/2.jpg"),
+                                        "link":"http://baidu.com"
+                                    },
+                                    {
+                                        "name":"正宗天津烤肉...",
+                                        "commit":"就问你,想要吗?那就来天津品尝吧",
+                                        "price":39.99,
+                                        "image":require("assets/goods/2.jpg"),
+                                        "link":"http://baidu.com"
+                                    }
+                                ]
                             },
                             {
-                                "name":"来自星星的猪肉脯...",
-                                "commit":"星空的美丽,你无法想象,那吃的呢",
-                                "price":20.99,
-                                "image":require("assets/goods/1.jpg"),
-                                "link":"http://baidu.com"
-                            },
-                            {
-                                "name":"来自星星的猪肉脯...",
-                                "commit":"星空的美丽,你无法想象,那吃的呢",
-                                "price":20.99,
-                                "image":require("assets/goods/1.jpg"),
-                                "link":"http://baidu.com"
-                            },
-                            {
-                                "name":"来自星星的猪肉脯...",
-                                "commit":"星空的美丽,你无法想象,那吃的呢",
-                                "price":20.99,
-                                "image":require("assets/goods/1.jpg"),
-                                "link":"http://baidu.com"
-                            },
-                            {
-                                "name":"来自星星的猪肉脯...",
-                                "commit":"星空的美丽,你无法想象,那吃的呢",
-                                "price":20.99,
-                                "image":require("assets/goods/1.jpg"),
-                                "link":"http://baidu.com"
-                            },
-                            {
-                                "name":"来自星星的猪肉脯...",
-                                "commit":"星空的美丽,你无法想象,那吃的呢",
-                                "price":20.99,
-                                "image":require("assets/goods/1.jpg"),
-                                "link":"http://baidu.com"
-                            },
-                            {
-                                "name":"来自星星的猪肉脯...",
-                                "commit":"星空的美丽,你无法想象,那吃的呢",
-                                "price":20.99,
-                                "image":require("assets/goods/1.jpg"),
-                                "link":"http://baidu.com"
+                                "title": "日 用 食 品",
+                                "color":"#F56C6C",
+                                "message": "查看更多",
+                                "icon": "el-icon-d-arrow-right",
+                                "wares":[
+                                    {
+                                        "name":"北京美味烤鸭...",
+                                        "commit":"正宗的味道,来品尝,吃了就忘不了...",
+                                        "price":59.99,
+                                        "image":require("assets/goods/3.jpg"),
+                                        "link":"http://baidu.com"
+                                    },
+                                    {
+                                        "name":"北京美味烤鸭...",
+                                        "commit":"正宗的味道,来品尝,吃了就忘不了...",
+                                        "price":59.99,
+                                        "image":require("assets/goods/3.jpg"),
+                                        "link":"http://baidu.com"
+                                    },
+                                    {
+                                        "name":"北京美味烤鸭...",
+                                        "commit":"正宗的味道,来品尝,吃了就忘不了...",
+                                        "price":59.99,
+                                        "image":require("assets/goods/3.jpg"),
+                                        "link":"http://baidu.com"
+                                    },
+                                    {
+                                        "name":"北京美味烤鸭...",
+                                        "commit":"正宗的味道,来品尝,吃了就忘不了...",
+                                        "price":59.99,
+                                        "image":require("assets/goods/3.jpg"),
+                                        "link":"http://baidu.com"
+                                    },
+                                    {
+                                        "name":"北京美味烤鸭...",
+                                        "commit":"正宗的味道,来品尝,吃了就忘不了...",
+                                        "price":59.99,
+                                        "image":require("assets/goods/3.jpg"),
+                                        "link":"http://baidu.com"
+                                    },
+                                    {
+                                        "name":"北京美味烤鸭...",
+                                        "commit":"正宗的味道,来品尝,吃了就忘不了...",
+                                        "price":59.99,
+                                        "image":require("assets/goods/3.jpg"),
+                                        "link":"http://baidu.com"
+                                    },
+                                    {
+                                        "name":"北京美味烤鸭...",
+                                        "commit":"正宗的味道,来品尝,吃了就忘不了...",
+                                        "price":59.99,
+                                        "image":require("assets/goods/3.jpg"),
+                                        "link":"http://baidu.com"
+                                    },
+                                    {
+                                        "name":"北京美味烤鸭...",
+                                        "commit":"正宗的味道,来品尝,吃了就忘不了...",
+                                        "price":59.99,
+                                        "image":require("assets/goods/3.jpg"),
+                                        "link":"http://baidu.com"
+                                    }
+
+                                ]
                             }
                         ],
-                        "likes":[
-                            {
-                                "name":"正宗天津烤肉...",
-                                "commit":"就问你,想要吗?那就来天津品尝吧",
-                                "price":39.99,
-                                "image":require("assets/goods/2.jpg"),
-                                "link":"http://baidu.com"
-                            },
-                            {
-                                "name":"正宗天津烤肉...",
-                                "commit":"就问你,想要吗?那就来天津品尝吧",
-                                "price":39.99,
-                                "image":require("assets/goods/2.jpg"),
-                                "link":"http://baidu.com"
-                            },
-                            {
-                                "name":"正宗天津烤肉...",
-                                "commit":"就问你,想要吗?那就来天津品尝吧",
-                                "price":39.99,
-                                "image":require("assets/goods/2.jpg"),
-                                "link":"http://baidu.com"
-                            },
-                            {
-                                "name":"正宗天津烤肉...",
-                                "commit":"就问你,想要吗?那就来天津品尝吧",
-                                "price":39.99,
-                                "image":require("assets/goods/2.jpg"),
-                                "link":"http://baidu.com"
-                            },
-                            {
-                                "name":"正宗天津烤肉...",
-                                "commit":"就问你,想要吗?那就来天津品尝吧",
-                                "price":39.99,
-                                "image":require("assets/goods/2.jpg"),
-                                "link":"http://baidu.com"
-                            },
-                            {
-                                "name":"正宗天津烤肉...",
-                                "commit":"就问你,想要吗?那就来天津品尝吧",
-                                "price":39.99,
-                                "image":require("assets/goods/2.jpg"),
-                                "link":"http://baidu.com"
-                            },
-                            {
-                                "name":"正宗天津烤肉...",
-                                "commit":"就问你,想要吗?那就来天津品尝吧",
-                                "price":39.99,
-                                "image":require("assets/goods/2.jpg"),
-                                "link":"http://baidu.com"
-                            },
-                            {
-                                "name":"正宗天津烤肉...",
-                                "commit":"就问你,想要吗?那就来天津品尝吧",
-                                "price":39.99,
-                                "image":require("assets/goods/2.jpg"),
-                                "link":"http://baidu.com"
-                            },
-
-                        ]
+                qrcode:[
+                    {
+                        "image":require("assets/qrcodes/qrcode.jpg"),
+                        "link":"https://www.mi.com/"
                     },
+                    {
+                        "image":require("assets/qrcodes/qrcode.jpg"),
+                        "link":"https://www.mi.com/"
+                    }
+                ],
                 footerMenu:[
                     {
                         "title":"预约点餐服务",
@@ -366,6 +452,9 @@
         margin: 0;
         padding: 0;
         list-style: none;
+    }
+    .main{
+        height: 2200px;
     }
     .el-swiper{
         width: 800px;
