@@ -5,16 +5,16 @@
        <el-header>
            <nav-menu></nav-menu>
        </el-header>
+       <el-header class="fix-menu" v-show="isshow">
+           <nav-menu></nav-menu>
+       </el-header>
        <!-- 网页顶部-->
        <el-container>
             <el-aside>
                 <aside-left-menu :menus="asideMenu"></aside-left-menu>
             </el-aside>
-
-
-               <home-swiper :banners="banners" class="el-swiper"></home-swiper>
-
-            <aside-right-menu :news="news"></aside-right-menu>
+           <home-swiper :banners="banners" class="el-swiper"></home-swiper>
+           <aside-right-menu :news="news"></aside-right-menu>
        </el-container>
        <!--主要食品-->
        <el-main>
@@ -22,7 +22,7 @@
        </el-main>
        <!--页脚-->
       <el-footer>
-          <div></div>
+          <footer-menu :menu="footerMenu"></footer-menu>
       </el-footer>
    </el-container>
    </div>
@@ -33,6 +33,8 @@
     import AsideLeftMenu from "./childComps/AsideLeftMenu";
     import AsideRightMenu from "./childComps/AsideRightMenu";
     import Commodity from "./childComps/Commodity";
+    import FooterMenu from "../../components/common/footer/FooterMenu";
+
     export default {
         name: "Home",
         components:{
@@ -40,10 +42,12 @@
             HomeSwiper,
             AsideLeftMenu,
             AsideRightMenu,
-            Commodity
+            Commodity,
+            FooterMenu
         },
         data:function () {
             return {
+                isshow:false,
                 banners:[
                     {
                         "image":require("assets/banners/1.jpg"),
@@ -126,66 +130,231 @@
                         "link":"http://www.baidu.com"
                     },
                 ],
-                goods:[
-                    {
-                        "name":"来自星星的猪肉脯...",
-                        "commit":"星空的美丽,你无法想象,那吃的呢",
-                         "price":20.99,
-                        "image":require("assets/goods/1.jpg"),
-                        "link":"http://baidu.com"
-                    },
-                    {
-                        "name":"来自星星的猪肉脯...",
-                        "commit":"星空的美丽,你无法想象,那吃的呢",
-                        "price":20.99,
-                        "image":require("assets/goods/1.jpg"),
-                        "link":"http://baidu.com"
-                    },
-                    {
-                        "name":"来自星星的猪肉脯...",
-                        "commit":"星空的美丽,你无法想象,那吃的呢",
-                        "price":20.99,
-                        "image":require("assets/goods/1.jpg"),
-                        "link":"http://baidu.com"
-                    },
-                    {
-                        "name":"来自星星的猪肉脯...",
-                        "commit":"星空的美丽,你无法想象,那吃的呢",
-                        "price":20.99,
-                        "image":require("assets/goods/1.jpg"),
-                        "link":"http://baidu.com"
-                    },
-                    {
-                        "name":"来自星星的猪肉脯...",
-                        "commit":"星空的美丽,你无法想象,那吃的呢",
-                        "price":20.99,
-                        "image":require("assets/goods/1.jpg"),
-                        "link":"http://baidu.com"
-                    },
-                    {
-                        "name":"来自星星的猪肉脯...",
-                        "commit":"星空的美丽,你无法想象,那吃的呢",
-                        "price":20.99,
-                        "image":require("assets/goods/1.jpg"),
-                        "link":"http://baidu.com"
-                    },
-                    {
-                        "name":"来自星星的猪肉脯...",
-                        "commit":"星空的美丽,你无法想象,那吃的呢",
-                        "price":20.99,
-                        "image":require("assets/goods/1.jpg"),
-                        "link":"http://baidu.com"
-                    },
-                    {
-                        "name":"来自星星的猪肉脯...",
-                        "commit":"星空的美丽,你无法想象,那吃的呢",
-                        "price":20.99,
-                        "image":require("assets/goods/1.jpg"),
-                        "link":"http://baidu.com"
-                    },
+                goods: {
+                        "recommends":[
+                            {
+                                "name":"来自星星的猪肉脯...",
+                                "commit":"星空的美丽,你无法想象,那吃的呢",
+                                "price":20.99,
+                                "image":require("assets/goods/1.jpg"),
+                                "link":"http://baidu.com"
+                            },
+                            {
+                                "name":"来自星星的猪肉脯...",
+                                "commit":"星空的美丽,你无法想象,那吃的呢",
+                                "price":20.99,
+                                "image":require("assets/goods/1.jpg"),
+                                "link":"http://baidu.com"
+                            },
+                            {
+                                "name":"来自星星的猪肉脯...",
+                                "commit":"星空的美丽,你无法想象,那吃的呢",
+                                "price":20.99,
+                                "image":require("assets/goods/1.jpg"),
+                                "link":"http://baidu.com"
+                            },
+                            {
+                                "name":"来自星星的猪肉脯...",
+                                "commit":"星空的美丽,你无法想象,那吃的呢",
+                                "price":20.99,
+                                "image":require("assets/goods/1.jpg"),
+                                "link":"http://baidu.com"
+                            },
+                            {
+                                "name":"来自星星的猪肉脯...",
+                                "commit":"星空的美丽,你无法想象,那吃的呢",
+                                "price":20.99,
+                                "image":require("assets/goods/1.jpg"),
+                                "link":"http://baidu.com"
+                            },
+                            {
+                                "name":"来自星星的猪肉脯...",
+                                "commit":"星空的美丽,你无法想象,那吃的呢",
+                                "price":20.99,
+                                "image":require("assets/goods/1.jpg"),
+                                "link":"http://baidu.com"
+                            },
+                            {
+                                "name":"来自星星的猪肉脯...",
+                                "commit":"星空的美丽,你无法想象,那吃的呢",
+                                "price":20.99,
+                                "image":require("assets/goods/1.jpg"),
+                                "link":"http://baidu.com"
+                            },
+                            {
+                                "name":"来自星星的猪肉脯...",
+                                "commit":"星空的美丽,你无法想象,那吃的呢",
+                                "price":20.99,
+                                "image":require("assets/goods/1.jpg"),
+                                "link":"http://baidu.com"
+                            }
+                        ],
+                        "likes":[
+                            {
+                                "name":"正宗天津烤肉...",
+                                "commit":"就问你,想要吗?那就来天津品尝吧",
+                                "price":39.99,
+                                "image":require("assets/goods/2.jpg"),
+                                "link":"http://baidu.com"
+                            },
+                            {
+                                "name":"正宗天津烤肉...",
+                                "commit":"就问你,想要吗?那就来天津品尝吧",
+                                "price":39.99,
+                                "image":require("assets/goods/2.jpg"),
+                                "link":"http://baidu.com"
+                            },
+                            {
+                                "name":"正宗天津烤肉...",
+                                "commit":"就问你,想要吗?那就来天津品尝吧",
+                                "price":39.99,
+                                "image":require("assets/goods/2.jpg"),
+                                "link":"http://baidu.com"
+                            },
+                            {
+                                "name":"正宗天津烤肉...",
+                                "commit":"就问你,想要吗?那就来天津品尝吧",
+                                "price":39.99,
+                                "image":require("assets/goods/2.jpg"),
+                                "link":"http://baidu.com"
+                            },
+                            {
+                                "name":"正宗天津烤肉...",
+                                "commit":"就问你,想要吗?那就来天津品尝吧",
+                                "price":39.99,
+                                "image":require("assets/goods/2.jpg"),
+                                "link":"http://baidu.com"
+                            },
+                            {
+                                "name":"正宗天津烤肉...",
+                                "commit":"就问你,想要吗?那就来天津品尝吧",
+                                "price":39.99,
+                                "image":require("assets/goods/2.jpg"),
+                                "link":"http://baidu.com"
+                            },
+                            {
+                                "name":"正宗天津烤肉...",
+                                "commit":"就问你,想要吗?那就来天津品尝吧",
+                                "price":39.99,
+                                "image":require("assets/goods/2.jpg"),
+                                "link":"http://baidu.com"
+                            },
+                            {
+                                "name":"正宗天津烤肉...",
+                                "commit":"就问你,想要吗?那就来天津品尝吧",
+                                "price":39.99,
+                                "image":require("assets/goods/2.jpg"),
+                                "link":"http://baidu.com"
+                            },
 
+                        ]
+                    },
+                footerMenu:[
+                    {
+                        "title":"预约点餐服务",
+                        "icon":"el-icon-phone",
+                         "childs":[
+                             {
+                                 "name":"帮助中心"
+                             },
+                             {
+                                 "name":"账户管理"
+                             },
+                             {
+                                 "name":"购物指南"
+                             },
+                             {
+                                 "name":"订单操作"
+                             }
+                         ]
+                    },
+                    {
+                        "title":"最新食品预览",
+                        "icon":"el-icon-picture",
+                        "childs":[
+                            {
+                                "name":"服务支持"
+                            },
+                            {
+                                "name":"售后政策"
+                            },
+                            {
+                                "name":"自助服务"
+                            },
+                            {
+                                "name":"相关下载"
+                            }
+                        ]
+                    },
+                    {
+                        "title":"关于我们",
+                        "icon":"el-icon-user-solid",
+                        "childs":[
+                            {
+                                "name":"加入我们",
+                            },
+                            {
+                                "name":"了解我们"
+                            },
+                            {
+                                "name":"投资者关系"
+                            },
+                            {
+                                "name":"企业社会责任"
+                            }
+                        ]
+                    },
+                    {
+                        "title":"帮助中心",
+                        "icon":"el-icon-s-help",
+                        "childs":[
+                            {
+                                "name":"礼物码"
+                            },
+                            {
+                                "name":"F码通道"
+                            },
+                            {
+                                "name":"防伪查询"
+                            },
+                            {
+                                "name":"人工客服"
+                            }
+                        ]
+                    },
+                    {
+                        "title":"线下门店",
+                        "icon":"el-icon-s-shop",
+                        "childs":[
+                            {
+                                "name":"鱼米之乡"
+                            },
+                            {
+                                "name":"服务网点"
+                            },
+                            {
+                                "name":"授权餐饮店"
+                            },
+                            {
+                                "name":"诚信经营"
+                            }
+                        ]
+                    }
 
                 ]
+
+            }
+        },
+        methods:{
+        },
+        mounted(){
+            document.onscroll = () => {
+                console.log(document.documentElement.scrollTop);
+                if(document.documentElement.scrollTop >= 60){
+                    this.isshow = true;
+                }else{
+                    this.isshow = false;
+                }
             }
         }
 
@@ -202,7 +371,15 @@
         width: 800px;
         height: 500px;
     }
-
+    .fix-menu{
+        width: 100%;
+        position: fixed;
+        z-index: 2;
+        top:0;
+    }
+    .clear{
+        clear: both;
+    }
 
 </style>
 
