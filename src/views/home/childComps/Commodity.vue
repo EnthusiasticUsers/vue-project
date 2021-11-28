@@ -1,7 +1,7 @@
 <template>
     <div class="el-commodity">
         <div v-for="(item,id) in goods" class="good">
-            <div class="goods-title" :key="id">
+            <div class="goods-title" :key="id" :name="item.name">
                 <div class="recommend" :style="{backgroundColor:item.color}">{{item.title}}</div>
                 <div class="more">{{item.message}}<i :class="item.icon"></i></div>
             </div>
@@ -27,9 +27,9 @@
         name: "Commodity",
         props:{
             goods:{
-                type:Object,
+                type:Array,
                 default(){
-                    return {}
+                    return []
                 }
             }
         }

@@ -1,6 +1,9 @@
 <template>
-    <div>
    <el-container>
+       <!--侧边栏-->
+       <aside-menu :menu="goods" v-show="isaside"></aside-menu>
+       <!--回到顶部-->
+       <back v-show="isback"></back>
        <!--导航栏-->
        <el-header>
            <nav-menu></nav-menu>
@@ -11,7 +14,7 @@
        <!-- 网页顶部-->
        <el-container>
             <el-aside>
-                <aside-left-menu :menus="asideMenu"></aside-left-menu>
+                <aside-left-menu :menus="asideLeftMenu"></aside-left-menu>
             </el-aside>
            <home-swiper :banners="banners" class="el-swiper"></home-swiper>
            <aside-right-menu :news="news"></aside-right-menu>
@@ -34,7 +37,8 @@
     import AsideRightMenu from "./childComps/AsideRightMenu";
     import Commodity from "./childComps/Commodity";
     import FooterMenu from "../../components/common/footer/FooterMenu";
-
+    import AsideMenu from "./childComps/AsideMenu";
+    import Back from "../../components/common/scroll/Back";
     export default {
         name: "Home",
         components:{
@@ -43,11 +47,15 @@
             AsideLeftMenu,
             AsideRightMenu,
             Commodity,
-            FooterMenu
+            FooterMenu,
+            AsideMenu,
+            Back
         },
         data:function () {
             return {
                 isshow:false,
+                isaside:false,
+                isback:false,
                 banners:[
                     {
                         "image":require("assets/banners/1.jpg"),
@@ -66,7 +74,7 @@
                         "link":"https://item.jd.com/10035916337498.html"
                     }
                 ],
-                asideMenu:[
+                asideLeftMenu:[
                     {
                         "name":"北 京 肉 铺",
                         "link":"https://item.jd.com/10035916337498.html",
@@ -133,7 +141,9 @@
                 goods:[
                             {
                                 "title": "好 物 推 荐",
+                                "name":"recommend",
                                 "color":"#409EFF",
+                                "sign":"el-icon-s-goods",
                                 "message": "查看更多",
                                 "icon": "el-icon-d-arrow-right",
                                 "wares":[
@@ -197,7 +207,9 @@
                             },
                             {
                                 "title": "猜 你 喜 欢",
+                                "name":"like",
                                 "color":"#67C23A",
+                                "sign":"el-icon-star-on",
                                 "message": "查看更多",
                                 "icon": "el-icon-d-arrow-right",
                                 "wares":[
@@ -261,7 +273,9 @@
                             },
                             {
                                 "title": "日 用 食 品",
+                                "name":"food",
                                 "color":"#F56C6C",
+                                "sign":"el-icon-shopping-cart-full",
                                 "message": "查看更多",
                                 "icon": "el-icon-d-arrow-right",
                                 "wares":[
@@ -428,7 +442,6 @@
                     }
 
                 ]
-
             }
         },
         methods:{
@@ -436,12 +449,43 @@
         mounted(){
             document.onscroll = () => {
                 console.log(document.documentElement.scrollTop);
-                if(document.documentElement.scrollTop >= 60){
+                let top = document.documentElement.scrollTop;
+                /*导航栏*/
+                if(top >= 60){
                     this.isshow = true;
                 }else{
                     this.isshow = false;
                 }
-            }
+
+                /*侧边栏*/
+                if(top >= 180 && top <= 2200){
+                    this.isaside = true;
+                }else{
+                    this.isaside = false;
+                }
+
+                /*切换类样式*/
+                let menuObj = document.getElementsByClassName("item");
+                for(let i = 0; i < menuObj.length; i++){
+                    menuObj[i].className = "item";
+                }
+                if(top >= 1400){
+                    menuObj[2].className = "item" + " active";
+                }else if(top >= 650){
+                    menuObj[1].className = "item" + " active";
+                }else if(top >= 180){
+                    menuObj[0].className = "item" + " active";
+                }
+
+                /*回到顶部*/
+                if(top >= 220){
+                    this.isback = true;
+                }else{
+                    this.isback = false;
+                }
+
+            },
+                window.addEventListener("scroll",this.backTop);
         }
 
     }
@@ -455,6 +499,7 @@
     }
     .main{
         height: 2200px;
+        position: relative;
     }
     .el-swiper{
         width: 800px;
