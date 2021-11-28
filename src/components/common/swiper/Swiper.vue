@@ -7,7 +7,7 @@
     </slot>
     <div class="indicator">
       <slot name="indicator" v-if="showIndicator && slideCount>1">
-        <div v-for="(item, index) in slideCount" class="indi-item" :class="{active: index === currentIndex-1}" :key="index"></div>
+        <div v-for="(item, index) in slideCount" class="indi-item" :class="{active: index === currentIndex-1}" :key="index" @click="btnClick(index)"></div>
       </slot>
     </div>
   </div>
@@ -169,6 +169,14 @@
             },
             next: function () {
                 this.changeItem(1);
+            },
+            btnClick: function(index){
+              let indiItem = document.getElementsByClassName("indi-item");
+              for(var i = 0; i < indiItem.length; i++){
+                indiItem[i].classList.remove("active");
+              }
+              this.changeItem(index);
+              indiItem[index].className = "active";
             },
             changeItem: function (num) {
                 // 1.移除定时器

@@ -7,21 +7,22 @@
        </el-header>
        <!-- 网页顶部-->
        <el-container>
-           <el-aside>
+            <el-aside>
                 <aside-left-menu :menus="asideMenu"></aside-left-menu>
-           </el-aside>
-           <el-main>
+            </el-aside>
+
+
                <home-swiper :banners="banners" class="el-swiper"></home-swiper>
-           </el-main>
+
             <aside-right-menu :news="news"></aside-right-menu>
        </el-container>
        <!--主要食品-->
        <el-main>
-           零食库
+          <commodity :goods="goods"></commodity>
        </el-main>
        <!--页脚-->
       <el-footer>
-          <div>底边栏</div>
+          <div></div>
       </el-footer>
    </el-container>
    </div>
@@ -31,13 +32,15 @@
     import HomeSwiper from "./childComps/HomeSwiper";
     import AsideLeftMenu from "./childComps/AsideLeftMenu";
     import AsideRightMenu from "./childComps/AsideRightMenu";
+    import Commodity from "./childComps/Commodity";
     export default {
         name: "Home",
         components:{
             NavMenu,
             HomeSwiper,
             AsideLeftMenu,
-            AsideRightMenu
+            AsideRightMenu,
+            Commodity
         },
         data:function () {
             return {
@@ -122,6 +125,66 @@
                         "title":"怎么才能让自己越来越来爱动手做饭,关注XX聊天室...",
                         "link":"http://www.baidu.com"
                     },
+                ],
+                goods:[
+                    {
+                        "name":"来自星星的猪肉脯...",
+                        "commit":"星空的美丽,你无法想象,那吃的呢",
+                         "price":20.99,
+                        "image":require("assets/goods/1.jpg"),
+                        "link":"http://baidu.com"
+                    },
+                    {
+                        "name":"来自星星的猪肉脯...",
+                        "commit":"星空的美丽,你无法想象,那吃的呢",
+                        "price":20.99,
+                        "image":require("assets/goods/1.jpg"),
+                        "link":"http://baidu.com"
+                    },
+                    {
+                        "name":"来自星星的猪肉脯...",
+                        "commit":"星空的美丽,你无法想象,那吃的呢",
+                        "price":20.99,
+                        "image":require("assets/goods/1.jpg"),
+                        "link":"http://baidu.com"
+                    },
+                    {
+                        "name":"来自星星的猪肉脯...",
+                        "commit":"星空的美丽,你无法想象,那吃的呢",
+                        "price":20.99,
+                        "image":require("assets/goods/1.jpg"),
+                        "link":"http://baidu.com"
+                    },
+                    {
+                        "name":"来自星星的猪肉脯...",
+                        "commit":"星空的美丽,你无法想象,那吃的呢",
+                        "price":20.99,
+                        "image":require("assets/goods/1.jpg"),
+                        "link":"http://baidu.com"
+                    },
+                    {
+                        "name":"来自星星的猪肉脯...",
+                        "commit":"星空的美丽,你无法想象,那吃的呢",
+                        "price":20.99,
+                        "image":require("assets/goods/1.jpg"),
+                        "link":"http://baidu.com"
+                    },
+                    {
+                        "name":"来自星星的猪肉脯...",
+                        "commit":"星空的美丽,你无法想象,那吃的呢",
+                        "price":20.99,
+                        "image":require("assets/goods/1.jpg"),
+                        "link":"http://baidu.com"
+                    },
+                    {
+                        "name":"来自星星的猪肉脯...",
+                        "commit":"星空的美丽,你无法想象,那吃的呢",
+                        "price":20.99,
+                        "image":require("assets/goods/1.jpg"),
+                        "link":"http://baidu.com"
+                    },
+
+
                 ]
             }
         }
@@ -139,6 +202,7 @@
         width: 800px;
         height: 500px;
     }
+
 
 </style>
 
