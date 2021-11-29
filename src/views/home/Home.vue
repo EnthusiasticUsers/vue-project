@@ -3,7 +3,7 @@
        <!--侧边栏-->
        <aside-menu :menu="goods" v-show="isaside"></aside-menu>
        <!--回到顶部-->
-       <back v-show="isback"></back>
+       <back-top @click.native="backTop" v-show="isback"></back-top>
        <!--导航栏-->
        <el-header>
            <nav-menu></nav-menu>
@@ -28,7 +28,6 @@
           <footer-menu :menu="footerMenu" :qrcode="qrcode"></footer-menu>
       </el-footer>
    </el-container>
-   </div>
 </template>
 <script>
     import NavMenu from "../../components/common/navbar/NavMenu";
@@ -38,18 +37,19 @@
     import Commodity from "./childComps/Commodity";
     import FooterMenu from "../../components/common/footer/FooterMenu";
     import AsideMenu from "./childComps/AsideMenu";
-    import Back from "../../components/common/scroll/Back";
+    import BackTop from "../../components/content/backTop/BackTop";
+
     export default {
         name: "Home",
         components:{
+            BackTop,
             NavMenu,
             HomeSwiper,
             AsideLeftMenu,
             AsideRightMenu,
             Commodity,
             FooterMenu,
-            AsideMenu,
-            Back
+            AsideMenu
         },
         data:function () {
             return {
@@ -445,10 +445,21 @@
             }
         },
         methods:{
+            backTop(){
+                clearInterval(timer);
+                let speed = 80;
+                let timer = setInterval(()=>{
+                    if(document.documentElement.scrollTop <= 0){
+                        clearInterval(timer);
+                    }else{
+                        document.documentElement.scrollTop -= speed;
+                    }
+                },16);
+            }
         },
         mounted(){
             document.onscroll = () => {
-                console.log(document.documentElement.scrollTop);
+                //console.log(document.documentElement.scrollTop);
                 let top = document.documentElement.scrollTop;
                 /*导航栏*/
                 if(top >= 60){
@@ -478,14 +489,13 @@
                 }
 
                 /*回到顶部*/
-                if(top >= 220){
+                if(top >= 300){
                     this.isback = true;
                 }else{
                     this.isback = false;
                 }
 
-            },
-                window.addEventListener("scroll",this.backTop);
+            }
         }
 
     }
@@ -499,7 +509,6 @@
     }
     .main{
         height: 2200px;
-        position: relative;
     }
     .el-swiper{
         width: 800px;
