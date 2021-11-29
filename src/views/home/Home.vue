@@ -152,7 +152,7 @@
                                         "commit":"星空的美丽,你无法想象,那吃的呢",
                                         "price":20.99,
                                         "image":require("assets/goods/1.jpg"),
-                                        "link":"http://baidu.com"
+                                        "link":"/detial"
                                     },
                                     {
                                         "name":"来自星星的猪肉脯...",

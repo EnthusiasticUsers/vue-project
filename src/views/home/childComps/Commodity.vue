@@ -8,7 +8,7 @@
             <div class="goods">
                 <ul v-for="(good,id) in item.wares">
                     <li :key="id">
-                        <a :href="good.link">
+                        <a :href="good.link + '?id=' + id">
                             <div class="el-goods">
                                 <img :src="good.image" alt="">
                                 <p class="name">{{good.name}} <span class="price">￥{{good.price}}</span></p>

@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-            <el-menu-item index="1"><i class="el-icon-s-home"></i>首页</el-menu-item>
+            <el-menu-item index="1"><a href="/"><i class="el-icon-s-home"></i>首页</a></el-menu-item>
             <el-submenu index="2">
                 <template slot="title"><i class="el-icon-s-shop"></i>特色店铺</template>
                 <el-menu-item index="2-1">滴滴猪肉铺~</el-menu-item>
