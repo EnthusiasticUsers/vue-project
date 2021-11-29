@@ -1,33 +1,35 @@
 <template>
-   <el-container>
-       <!--侧边栏-->
-       <aside-menu :menu="goods" v-show="isaside"></aside-menu>
-       <!--回到顶部-->
-       <back-top @click.native="backTop" v-show="isback"></back-top>
-       <!--导航栏-->
-       <el-header>
-           <nav-menu></nav-menu>
-       </el-header>
-       <el-header class="fix-menu" v-show="isshow">
-           <nav-menu></nav-menu>
-       </el-header>
-       <!-- 网页顶部-->
-       <el-container>
-            <el-aside>
-                <aside-left-menu :menus="asideLeftMenu"></aside-left-menu>
-            </el-aside>
-           <home-swiper :banners="banners" class="el-swiper"></home-swiper>
-           <aside-right-menu :news="news"></aside-right-menu>
-       </el-container>
-       <!--主要食品-->
-       <el-main class="main">
-          <commodity :goods="goods"></commodity>
-       </el-main>
-       <!--页脚-->
-      <el-footer>
-          <footer-menu :menu="footerMenu" :qrcode="qrcode"></footer-menu>
-      </el-footer>
-   </el-container>
+    <div>
+        <el-container>
+            <!--侧边栏-->
+            <aside-menu :menu="goods" v-show="isaside"></aside-menu>
+            <!--回到顶部-->
+            <back-top @click.native="backTop" v-show="isback"></back-top>
+            <!--导航栏-->
+            <el-header>
+                <nav-menu></nav-menu>
+            </el-header>
+            <el-header class="fix-menu" v-show="isshow">
+                <nav-menu></nav-menu>
+            </el-header>
+            <!-- 网页顶部-->
+            <el-container>
+                <el-aside>
+                    <aside-left-menu :menus="asideLeftMenu"></aside-left-menu>
+                </el-aside>
+                <home-swiper :banners="banners" class="el-swiper"></home-swiper>
+                <aside-right-menu :news="news"></aside-right-menu>
+            </el-container>
+            <!--主要食品-->
+            <el-main class="main">
+                <commodity :goods="goods" @sendFid="getFid" @sendCid="getCid"></commodity>
+            </el-main>
+            <!--页脚-->
+            <el-footer>
+                <footer-menu :menu="footerMenu" :qrcode="qrcode"></footer-menu>
+            </el-footer>
+        </el-container>
+    </div>
 </template>
 <script>
     import NavMenu from "../../components/common/navbar/NavMenu";
@@ -38,6 +40,7 @@
     import FooterMenu from "../../components/common/footer/FooterMenu";
     import AsideMenu from "./childComps/AsideMenu";
     import BackTop from "../../components/content/backTop/BackTop";
+
 
     export default {
         name: "Home",
@@ -51,11 +54,13 @@
             FooterMenu,
             AsideMenu
         },
-        data:function () {
+        data() {
             return {
                 isshow:false,
                 isaside:false,
                 isback:false,
+                fid:0,
+                cid:0,
                 banners:[
                     {
                         "image":require("assets/banners/1.jpg"),
@@ -152,6 +157,23 @@
                                         "commit":"星空的美丽,你无法想象,那吃的呢",
                                         "price":20.99,
                                         "image":require("assets/goods/1.jpg"),
+                                        "childImage":[
+                                            {
+                                                "image":require("assets/goods/good1/1.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/2.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/3.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/4.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/5.jpg")
+                                            },
+                                        ],
                                         "link":"/detial"
                                     },
                                     {
@@ -159,49 +181,168 @@
                                         "commit":"星空的美丽,你无法想象,那吃的呢",
                                         "price":20.99,
                                         "image":require("assets/goods/1.jpg"),
-                                        "link":"http://baidu.com"
+                                        "childImage":[
+                                            {
+                                                "image":require("assets/goods/good1/1.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/2.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/3.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/4.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/5.jpg")
+                                            },
+                                        ],
+                                        "link":"/detial"
                                     },
                                     {
                                         "name":"来自星星的猪肉脯...",
                                         "commit":"星空的美丽,你无法想象,那吃的呢",
                                         "price":20.99,
                                         "image":require("assets/goods/1.jpg"),
-                                        "link":"http://baidu.com"
+                                        "childImage":[
+                                            {
+                                                "image":require("assets/goods/good1/1.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/2.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/3.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/4.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/5.jpg")
+                                            },
+                                        ],
+                                        "link":"/detial"
                                     },
                                     {
                                         "name":"来自星星的猪肉脯...",
                                         "commit":"星空的美丽,你无法想象,那吃的呢",
                                         "price":20.99,
                                         "image":require("assets/goods/1.jpg"),
-                                        "link":"http://baidu.com"
+                                        "childImage":[
+                                            {
+                                                "image":require("assets/goods/good1/1.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/2.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/3.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/4.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/5.jpg")
+                                            },
+                                        ],
+                                        "link":"/detial"
                                     },
                                     {
                                         "name":"来自星星的猪肉脯...",
                                         "commit":"星空的美丽,你无法想象,那吃的呢",
                                         "price":20.99,
                                         "image":require("assets/goods/1.jpg"),
-                                        "link":"http://baidu.com"
+                                        "childImage":[
+                                            {
+                                                "image":require("assets/goods/good1/1.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/2.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/3.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/4.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/5.jpg")
+                                            },
+                                        ],
+                                        "link":"/detial"
                                     },
                                     {
                                         "name":"来自星星的猪肉脯...",
                                         "commit":"星空的美丽,你无法想象,那吃的呢",
                                         "price":20.99,
                                         "image":require("assets/goods/1.jpg"),
-                                        "link":"http://baidu.com"
+                                        "childImage":[
+                                            {
+                                                "image":require("assets/goods/good1/1.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/2.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/3.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/4.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/5.jpg")
+                                            },
+                                        ],
+                                        "link":"/detial"
                                     },
                                     {
                                         "name":"来自星星的猪肉脯...",
                                         "commit":"星空的美丽,你无法想象,那吃的呢",
                                         "price":20.99,
                                         "image":require("assets/goods/1.jpg"),
-                                        "link":"http://baidu.com"
+                                        "childImage":[
+                                            {
+                                                "image":require("assets/goods/good1/1.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/2.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/3.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/4.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/5.jpg")
+                                            },
+                                        ],
+                                        "link":"/detial"
                                     },
                                     {
                                         "name":"来自星星的猪肉脯...",
                                         "commit":"星空的美丽,你无法想象,那吃的呢",
                                         "price":20.99,
                                         "image":require("assets/goods/1.jpg"),
-                                        "link":"http://baidu.com"
+                                        "childImage":[
+                                            {
+                                                "image":require("assets/goods/good1/1.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/2.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/3.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/4.jpg")
+                                            },
+                                            {
+                                                "image":require("assets/goods/good1/5.jpg")
+                                            },
+                                        ],
+                                        "link":"/detial"
                                     }
                                 ]
                             },
@@ -218,56 +359,56 @@
                                         "commit":"就问你,想要吗?那就来天津品尝吧",
                                         "price":39.99,
                                         "image":require("assets/goods/2.jpg"),
-                                        "link":"http://baidu.com"
+                                        "link":"/detial"
                                     },
                                     {
                                         "name":"正宗天津烤肉...",
                                         "commit":"就问你,想要吗?那就来天津品尝吧",
                                         "price":39.99,
                                         "image":require("assets/goods/2.jpg"),
-                                        "link":"http://baidu.com"
+                                        "link":"/detial"
                                     },
                                     {
                                         "name":"正宗天津烤肉...",
                                         "commit":"就问你,想要吗?那就来天津品尝吧",
                                         "price":39.99,
                                         "image":require("assets/goods/2.jpg"),
-                                        "link":"http://baidu.com"
+                                        "link":"/detial"
                                     },
                                     {
                                         "name":"正宗天津烤肉...",
                                         "commit":"就问你,想要吗?那就来天津品尝吧",
                                         "price":39.99,
                                         "image":require("assets/goods/2.jpg"),
-                                        "link":"http://baidu.com"
+                                        "link":"/detial"
                                     },
                                     {
                                         "name":"正宗天津烤肉...",
                                         "commit":"就问你,想要吗?那就来天津品尝吧",
                                         "price":39.99,
                                         "image":require("assets/goods/2.jpg"),
-                                        "link":"http://baidu.com"
+                                        "link":"/detial"
                                     },
                                     {
                                         "name":"正宗天津烤肉...",
                                         "commit":"就问你,想要吗?那就来天津品尝吧",
                                         "price":39.99,
                                         "image":require("assets/goods/2.jpg"),
-                                        "link":"http://baidu.com"
+                                        "link":"/detial"
                                     },
                                     {
                                         "name":"正宗天津烤肉...",
                                         "commit":"就问你,想要吗?那就来天津品尝吧",
                                         "price":39.99,
                                         "image":require("assets/goods/2.jpg"),
-                                        "link":"http://baidu.com"
+                                        "link":"/detial"
                                     },
                                     {
                                         "name":"正宗天津烤肉...",
                                         "commit":"就问你,想要吗?那就来天津品尝吧",
                                         "price":39.99,
                                         "image":require("assets/goods/2.jpg"),
-                                        "link":"http://baidu.com"
+                                        "link":"/detial"
                                     }
                                 ]
                             },
@@ -284,56 +425,56 @@
                                         "commit":"正宗的味道,来品尝,吃了就忘不了...",
                                         "price":59.99,
                                         "image":require("assets/goods/3.jpg"),
-                                        "link":"http://baidu.com"
+                                        "link":"/detial"
                                     },
                                     {
                                         "name":"北京美味烤鸭...",
                                         "commit":"正宗的味道,来品尝,吃了就忘不了...",
                                         "price":59.99,
                                         "image":require("assets/goods/3.jpg"),
-                                        "link":"http://baidu.com"
+                                        "link":"/detial"
                                     },
                                     {
                                         "name":"北京美味烤鸭...",
                                         "commit":"正宗的味道,来品尝,吃了就忘不了...",
                                         "price":59.99,
                                         "image":require("assets/goods/3.jpg"),
-                                        "link":"http://baidu.com"
+                                        "link":"/detial"
                                     },
                                     {
                                         "name":"北京美味烤鸭...",
                                         "commit":"正宗的味道,来品尝,吃了就忘不了...",
                                         "price":59.99,
                                         "image":require("assets/goods/3.jpg"),
-                                        "link":"http://baidu.com"
+                                        "link":"/detial"
                                     },
                                     {
                                         "name":"北京美味烤鸭...",
                                         "commit":"正宗的味道,来品尝,吃了就忘不了...",
                                         "price":59.99,
                                         "image":require("assets/goods/3.jpg"),
-                                        "link":"http://baidu.com"
+                                        "link":"/detial"
                                     },
                                     {
                                         "name":"北京美味烤鸭...",
                                         "commit":"正宗的味道,来品尝,吃了就忘不了...",
                                         "price":59.99,
                                         "image":require("assets/goods/3.jpg"),
-                                        "link":"http://baidu.com"
+                                        "link":"/detial"
                                     },
                                     {
                                         "name":"北京美味烤鸭...",
                                         "commit":"正宗的味道,来品尝,吃了就忘不了...",
                                         "price":59.99,
                                         "image":require("assets/goods/3.jpg"),
-                                        "link":"http://baidu.com"
+                                        "link":"/detial"
                                     },
                                     {
                                         "name":"北京美味烤鸭...",
                                         "commit":"正宗的味道,来品尝,吃了就忘不了...",
                                         "price":59.99,
                                         "image":require("assets/goods/3.jpg"),
-                                        "link":"http://baidu.com"
+                                        "link":"/detial"
                                     }
 
                                 ]
@@ -455,6 +596,12 @@
                         document.documentElement.scrollTop -= speed;
                     }
                 },16);
+            },
+            getFid(fid){
+                this.fid = fid;
+            },
+            getCid(cid){
+                this.cid = cid;
             }
         },
         mounted(){

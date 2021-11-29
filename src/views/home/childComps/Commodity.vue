@@ -1,14 +1,14 @@
 <template>
     <div class="el-commodity">
-        <div v-for="(item,id) in goods" class="good">
-            <div class="goods-title" :key="id" :name="item.name">
+        <div v-for="(item,fid) in goods" class="good" @click="sendFid(fid)">
+            <div class="goods-title" :key="fid" :name="item.name">
                 <div class="recommend" :style="{backgroundColor:item.color}">{{item.title}}</div>
                 <div class="more">{{item.message}}<i :class="item.icon"></i></div>
             </div>
             <div class="goods">
-                <ul v-for="(good,id) in item.wares">
-                    <li :key="id">
-                        <a :href="good.link + '?id=' + id">
+                <ul v-for="(good,cid) in item.wares">
+                    <li :key="cid" @click="sendCid(cid)">
+                        <a :href="good.link + '?fid='+ fid + '&cid=' + cid">
                             <div class="el-goods">
                                 <img :src="good.image" alt="">
                                 <p class="name">{{good.name}} <span class="price">￥{{good.price}}</span></p>
@@ -31,6 +31,14 @@
                 default(){
                     return []
                 }
+            }
+        },
+        methods:{
+            sendFid(id){
+                this.$emit("sendFid", id);
+            },
+            sendCid(id){
+                this.$emit("sendCid", id);
             }
         }
     }
