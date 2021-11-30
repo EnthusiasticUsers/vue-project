@@ -5,9 +5,9 @@
             <!--left -->
             <show-bot :good="goods[this.$route.query.fid].wares[this.$route.query.cid]"></show-bot>
             <!--conet -->
-            <tb-property></tb-property>
+            <tb-property :good="goods[this.$route.query.fid].wares[this.$route.query.cid]" :title="titles"></tb-property>
             <!--right -->
-            <ext-info></ext-info>
+            <ext-info ></ext-info>
         </div>
         <!-- 推荐搭配 -->
         <gdetail></gdetail>
@@ -62,7 +62,11 @@
                                         "image":require("assets/goods/good1/5.jpg")
                                     },
                                 ],
-                                "link":"/detial"
+                                "link":"/detial",
+                                "sales":37,
+                                "assess":40,
+                                "stock":199,
+                                "assessList":["非常喜欢", "一般", "不喜欢"]
                             },
                             {
                                 "name":"来自星星的猪肉脯...",
@@ -86,7 +90,11 @@
                                         "image":require("assets/goods/good1/5.jpg")
                                     },
                                 ],
-                                "link":"/detial"
+                                "link":"/detial",
+                                "sales":37,
+                                "assess":40,
+                                "stock":199,
+                                "assessList":["非常喜欢", "一般", "不喜欢"]
                             },
                             {
                                 "name":"来自星星的猪肉脯...",
@@ -110,7 +118,11 @@
                                         "image":require("assets/goods/good1/5.jpg")
                                     },
                                 ],
-                                "link":"/detial"
+                                "link":"/detial",
+                                "sales":37,
+                                "assess":40,
+                                "stock":199,
+                                "assessList":["非常喜欢", "一般", "不喜欢"]
                             },
                             {
                                 "name":"来自星星的猪肉脯...",
@@ -134,7 +146,11 @@
                                         "image":require("assets/goods/good1/5.jpg")
                                     },
                                 ],
-                                "link":"/detial"
+                                "link":"/detial",
+                                "sales":37,
+                                "assess":40,
+                                "stock":199,
+                                "assessList":["非常喜欢", "一般", "不喜欢"]
                             },
                             {
                                 "name":"来自星星的猪肉脯...",
@@ -158,7 +174,11 @@
                                         "image":require("assets/goods/good1/5.jpg")
                                     },
                                 ],
-                                "link":"/detial"
+                                "link":"/detial",
+                                "sales":37,
+                                "assess":40,
+                                "stock":199,
+                                "assessList":["非常喜欢", "一般", "不喜欢"]
                             },
                             {
                                 "name":"来自星星的猪肉脯...",
@@ -182,7 +202,11 @@
                                         "image":require("assets/goods/good1/5.jpg")
                                     },
                                 ],
-                                "link":"/detial"
+                                "link":"/detial",
+                                "sales":37,
+                                "assess":40,
+                                "stock":199,
+                                "assessList":["非常喜欢", "一般", "不喜欢"]
                             },
                             {
                                 "name":"来自星星的猪肉脯...",
@@ -206,7 +230,11 @@
                                         "image":require("assets/goods/good1/5.jpg")
                                     },
                                 ],
-                                "link":"/detial"
+                                "link":"/detial",
+                                "sales":37,
+                                "assess":40,
+                                "stock":199,
+                                "assessList":["非常喜欢", "一般", "不喜欢"]
                             },
                             {
                                 "name":"来自星星的猪肉脯...",
@@ -230,7 +258,11 @@
                                         "image":require("assets/goods/good1/5.jpg")
                                     },
                                 ],
-                                "link":"/detial"
+                                "link":"/detial",
+                                "sales":37,
+                                "assess":40,
+                                "stock":199,
+                                "assessList":["非常喜欢", "一般", "不喜欢"]
                             }
                         ]
                     },
@@ -247,56 +279,88 @@
                                 "commit":"就问你,想要吗?那就来天津品尝吧",
                                 "price":39.99,
                                 "image":require("assets/goods/2.jpg"),
-                                "link":"/detial"
+                                "link":"/detial",
+                                "sales":37,
+                                "assess":40,
+                                "stock":199,
+                                "assessList":["非常喜欢", "一般", "不喜欢"]
                             },
                             {
                                 "name":"正宗天津烤肉...",
                                 "commit":"就问你,想要吗?那就来天津品尝吧",
                                 "price":39.99,
                                 "image":require("assets/goods/2.jpg"),
-                                "link":"/detial"
+                                "link":"/detial",
+                                "sales":37,
+                                "assess":40,
+                                "stock":199,
+                                "assessList":["非常喜欢", "一般", "不喜欢"]
                             },
                             {
                                 "name":"正宗天津烤肉...",
                                 "commit":"就问你,想要吗?那就来天津品尝吧",
                                 "price":39.99,
                                 "image":require("assets/goods/2.jpg"),
-                                "link":"/detial"
+                                "link":"/detial",
+                                "sales":37,
+                                "assess":40,
+                                "stock":199,
+                                "assessList":["非常喜欢", "一般", "不喜欢"]
                             },
                             {
                                 "name":"正宗天津烤肉...",
                                 "commit":"就问你,想要吗?那就来天津品尝吧",
                                 "price":39.99,
                                 "image":require("assets/goods/2.jpg"),
-                                "link":"/detial"
+                                "link":"/detial",
+                                "sales":37,
+                                "assess":40,
+                                "stock":199,
+                                "assessList":["非常喜欢", "一般", "不喜欢"]
                             },
                             {
                                 "name":"正宗天津烤肉...",
                                 "commit":"就问你,想要吗?那就来天津品尝吧",
                                 "price":39.99,
                                 "image":require("assets/goods/2.jpg"),
-                                "link":"/detial"
+                                "link":"/detial",
+                                "sales":37,
+                                "assess":40,
+                                "stock":199,
+                                "assessList":["非常喜欢", "一般", "不喜欢"]
                             },
                             {
                                 "name":"正宗天津烤肉...",
                                 "commit":"就问你,想要吗?那就来天津品尝吧",
                                 "price":39.99,
                                 "image":require("assets/goods/2.jpg"),
-                                "link":"/detial"
+                                "link":"/detial",
+                                "sales":37,
+                                "assess":40,
+                                "stock":199,
+                                "assessList":["非常喜欢", "一般", "不喜欢"]
                             },
                             {
                                 "name":"正宗天津烤肉...",
                                 "commit":"就问你,想要吗?那就来天津品尝吧",
                                 "price":39.99,
                                 "image":require("assets/goods/2.jpg"),
-                                "link":"/detial"
+                                "link":"/detial",
+                                "sales":37,
+                                "assess":40,
+                                "stock":199,
+                                "assessList":["非常喜欢", "一般", "不喜欢"]
                             },
                             {
                                 "name":"正宗天津烤肉...",
                                 "commit":"就问你,想要吗?那就来天津品尝吧",
                                 "price":39.99,
                                 "image":require("assets/goods/2.jpg"),
-                                "link":"/detial"
+                                "link":"/detial",
+                                "sales":37,
+                                "assess":40,
+                                "stock":199,
+                                "assessList":["非常喜欢", "一般", "不喜欢"]
                             }
                         ]
                     },
@@ -313,61 +377,115 @@
                                 "commit":"正宗的味道,来品尝,吃了就忘不了...",
                                 "price":59.99,
                                 "image":require("assets/goods/3.jpg"),
-                                "link":"/detial"
+                                "link":"/detial",
+                                "sales":37,
+                                "assess":40,
+                                "stock":199,
+                                "assessList":["非常喜欢", "一般", "不喜欢"]
                             },
                             {
                                 "name":"北京美味烤鸭...",
                                 "commit":"正宗的味道,来品尝,吃了就忘不了...",
                                 "price":59.99,
                                 "image":require("assets/goods/3.jpg"),
-                                "link":"/detial"
+                                "link":"/detial",
+                                "sales":37,
+                                "assess":40,
+                                "stock":199,
+                                "assessList":["非常喜欢", "一般", "不喜欢"]
                             },
                             {
                                 "name":"北京美味烤鸭...",
                                 "commit":"正宗的味道,来品尝,吃了就忘不了...",
                                 "price":59.99,
                                 "image":require("assets/goods/3.jpg"),
-                                "link":"/detial"
+                                "link":"/detial",
+                                "sales":37,
+                                "assess":40,
+                                "stock":199,
+                                "assessList":["非常喜欢", "一般", "不喜欢"]
                             },
                             {
                                 "name":"北京美味烤鸭...",
                                 "commit":"正宗的味道,来品尝,吃了就忘不了...",
                                 "price":59.99,
                                 "image":require("assets/goods/3.jpg"),
-                                "link":"/detial"
+                                "link":"/detial",
+                                "sales":37,
+                                "assess":40,
+                                "stock":199,
+                                "assessList":["非常喜欢", "一般", "不喜欢"]
                             },
                             {
                                 "name":"北京美味烤鸭...",
                                 "commit":"正宗的味道,来品尝,吃了就忘不了...",
                                 "price":59.99,
                                 "image":require("assets/goods/3.jpg"),
-                                "link":"/detial"
+                                "link":"/detial",
+                                "sales":37,
+                                "assess":40,
+                                "stock":199,
+                                "assessList":["非常喜欢", "一般", "不喜欢"]
                             },
                             {
                                 "name":"北京美味烤鸭...",
                                 "commit":"正宗的味道,来品尝,吃了就忘不了...",
                                 "price":59.99,
                                 "image":require("assets/goods/3.jpg"),
-                                "link":"/detial"
+                                "link":"/detial",
+                                "sales":37,
+                                "assess":40,
+                                "stock":199,
+                                "assessList":["非常喜欢", "一般", "不喜欢"]
                             },
                             {
                                 "name":"北京美味烤鸭...",
                                 "commit":"正宗的味道,来品尝,吃了就忘不了...",
                                 "price":59.99,
                                 "image":require("assets/goods/3.jpg"),
-                                "link":"/detial"
+                                "link":"/detial",
+                                "sales":37,
+                                "assess":40,
+                                "stock":199,
+                                "assessList":["非常喜欢", "一般", "不喜欢"]
                             },
                             {
                                 "name":"北京美味烤鸭...",
                                 "commit":"正宗的味道,来品尝,吃了就忘不了...",
                                 "price":59.99,
                                 "image":require("assets/goods/3.jpg"),
-                                "link":"/detial"
+                                "link":"/detial",
+                                "sales":37,
+                                "assess":40,
+                                "stock":199,
+                                "assessList":["非常喜欢", "一般", "不喜欢"]
                             }
 
                         ]
                     }
-                ]
+                ],
+                stores:[
+                    {
+                        "name":"滴滴猪肉脯",
+                        "logo":require("assets/images/ho_03.png"),
+                        "grade":"初级店铺",
+                        "telephone":"15012365897",
+                        "location":"河南郑州市航海路"
+                    }
+                ],
+                titles:{
+                    "sales":"累计售出",
+                    "assess":"累计评价",
+                    "clazz":"评价",
+                    "number":"数量",
+                    "stock":"库存",
+                    "toCart":"加入购物车",
+                    "emp":"立即购买",
+                    "postage": {
+                            "msg":"邮费：包邮 支持货到付款",
+                            "image":require("assets/images/me.png")
+                        }
+                    }
             }
         }
     }
