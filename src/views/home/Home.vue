@@ -649,28 +649,11 @@
 </script>
 
 <style scoped>
-    *{
-        margin: 0;
-        padding: 0;
-        list-style: none;
-    }
-    .main{
-        height: 2200px;
-    }
-    .el-swiper{
-        width: 800px;
-        height: 500px;
-    }
-    .fix-menu{
-        width: 100%;
-        position: fixed;
-        z-index: 2;
-        top:0;
-    }
-    .clear{
-        clear: both;
-    }
-
+    *{margin: 0;padding: 0;list-style: none;}
+    .main{height: 2200px;}
+    .el-swiper{width: 800px;height: 500px;}
+    .fix-menu{width: 100%;position: fixed;z-index: 2;top:0;}
+    .clear{clear: both;}
 </style>
 
 
