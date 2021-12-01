@@ -1,19 +1,20 @@
 <template>
-    <transition>
         <div>
+            <transition name="el-fade-in-linear">
+                <go-cart class="transition-box" v-if="isCart" :good="good"></go-cart>
+            </transition>
             <nav-menu></nav-menu>
             <div class="showall">
                 <!--left -->
                 <show-bot :good="goods[this.$route.query.fid].wares[this.$route.query.cid]"></show-bot>
                 <!--conet -->
-                <tb-property :good="goods[this.$route.query.fid].wares[this.$route.query.cid]" :title="titles"></tb-property>
+                <tb-property :good="goods[this.$route.query.fid].wares[this.$route.query.cid]" :title="titles" @sendGood="getGood"></tb-property>
                 <!--right -->
                 <ext-info :store="stores[this.$route.query.fid][this.$route.query.cid]" :seller="sellers"></ext-info>
             </div>
             <!-- 推荐搭配 -->
             <gdetail :wares="goods[this.$route.query.fid].wares"></gdetail>
         </div>
-    </transition>
 </template>
 
 <script>
@@ -22,6 +23,7 @@
     import TbProperty from "./childComps/TbProperty";
     import ExtInfo from "./childComps/ExtInfo";
     import Gdetail from "./childComps/Gdetail";
+    import goCart from "../../components/common/cart/goCart";
 
     export default {
         name: "Detial",
@@ -30,10 +32,13 @@
             ShowBot,
             TbProperty,
             ExtInfo,
-            Gdetail
+            Gdetail,
+            goCart
         },
         data(){
             return {
+                isCart:false,
+                good:null,
                 goods:[
                     {
                         "title": "好 物 推 荐",
@@ -949,7 +954,23 @@
                             "msg":"邮费：包邮 支持货到付款",
                             "image":require("assets/images/me.png")
                         }
-                    }
+                    },
+
+            }
+        },
+        methods:{
+            getGood(good){
+                console.log(good);
+                this.good = good;
+                if(good !== null){
+                    this.toggle();
+                    setTimeout(this.toggle,1000);
+                }else{
+                    alert("error");
+                }
+            },
+            toggle(){
+                this.isCart = !this.isCart;
             }
         }
     }

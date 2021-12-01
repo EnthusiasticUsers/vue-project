@@ -24,8 +24,8 @@
             <span class="Hgt">{{title.stock}}（{{good.stock}}）</span>
         </div>
         <div class="nobdr-btns">
-            <button class="addcart hu"><i class="el-icon-shopping-cart-full"></i>{{title.toCart}}</button>
-            <button class="addcart yh"><i class="el-icon-star-on"></i>{{title.emp}}</button>
+            <button class="addcart hu" @click="sendGood('加入购物车成功')"><i class="el-icon-shopping-cart-full"></i>{{title.toCart}}</button>
+            <button class="addcart yh" @click="sendGood('购 买 成 功')"><i class="el-icon-star-on"></i>{{title.emp}}</button>
         </div>
         <div class="guarantee">
             <span>{{title.postage.msg}} <a href=""><img :src="title.postage.image"/></a></span>
@@ -71,6 +71,11 @@
                         clazzList[i].className = "clazz";
                     }
                 }
+            },
+            sendGood(msg){
+                this.good.number = this.goodnumber;
+                this.good.msg = msg;
+                this.$emit("sendGood",this.good);
             }
         }
     }
