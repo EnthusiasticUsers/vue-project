@@ -2,30 +2,19 @@
     <div class="extInfo">
         <div class="brand-logo">
             <a href="" title="奥影汽车影音">
-                <img src="../../../assets/images/ho_03.png"/>
+                <img :src="store.logo"/>
             </a>
         </div>
         <div class="seller-pop-box">
-            <span class="tr">商家名称：BookStore</span>
-            <span class="tr">商家等级：初级店铺</span>
-            <span class="tr">客家电话：15012365897</span>
+            <span class="tr">商家名称：{{store.name}}</span>
+            <span class="tr">商家等级：{{store.grade}}</span>
+            <span class="tr">客家电话：{{store.telephone}}</span>
             <span class="tr hoh">
-            	            		<a title="河南郑州市航海路57号河南郑州市航海路57号" href="">所在地区：河南郑州市航海路57号河南郑州市航海路57号</a>
+            	            		<a :title="store.location" href="">所在地区：{{store.location}}</a>
             	            	</span>
         </div>
         <div class="seller-phone">
-            	            	<span class="pop im">
-            	            		<a href="" data-name="联系卖家"><img src="../../../assets/images/phon.png"/>联系卖家</a>
-            	            	</span>
-            <span class="pop in">
-            	            		<a href="" data-name="咨询卖家"><img src="../../../assets/images/qq.png"/>咨询卖家</a>
-            	            	</span>
-            <span class="pop in">
-            	            		<a href="" data-name="进店逛逛"><img src="../../../assets/images/shop-line.png"/>进店逛逛</a>
-            	            	</span>
-            <span class="pop in">
-            	            		<a href="" data-name="关注店铺"><img src="../../../assets/images/staar.png"/>关注店铺</a>
-            	            	</span>
+            <span v-for="(item,id) in seller" class="pop in" :data-name="item.name"><a href=""><img :src="item.image" alt="">{{item.name}}</a></span>
         </div>
         <div class="jd-service">
             <a href="">
@@ -41,7 +30,21 @@
 
 <script>
     export default {
-        name: "ExtInfo"
+        name: "ExtInfo",
+        props:{
+            store:{
+                type:Object,
+                default(){
+                    return {}
+                }
+            },
+            seller:{
+                type:Array,
+                default() {
+                    return [];
+                }
+            }
+        }
     }
 </script>
 

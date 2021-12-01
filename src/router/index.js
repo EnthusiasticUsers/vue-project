@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 
 const Home = () => import("views/home/Home");
 const Detial = () => import("views/detial/Detial");
+const Profile = () => import("views/profile/Profile");
+const Cart = () => import("views/cart/Cart");
 
 Vue.use(VueRouter);
 
@@ -14,8 +16,18 @@ const routes = [
   },
   {
     path: "/detial",
-    name:"Detial",
-    component:Detial
+    name: "Detial",
+    component: Detial
+  },
+  {
+    path: "/cart",
+    name: "Cart",
+    component: Cart
+  },
+  {
+    path: "/profile",
+    name: "Profile",
+    component:Profile
   }
 ];
 

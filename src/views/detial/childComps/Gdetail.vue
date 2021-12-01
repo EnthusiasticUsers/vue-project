@@ -9,62 +9,32 @@
                 <div class="icon_equal">
                     =
                 </div>
-                <div class="dp_num">已经选择0个配件
-                    <p class="dq_price">总计<span>￥49.00</span>元</p>
+                <div class="dp_num">已经选择{{count}}个配件
+                    <p class="dq_price">总计<span>{{total}}</span>元</p>
                     <button class="get">立即购买</button>
                 </div>
             </div>
             <!-- 搭配1 -->
             <div class="dq_ori">
-                <a class="dq_ori_prd" href=""><img src="../../../assets/images/photos/img01.png"/></a>
-                <a class="ori_prd" href="">刘擎：做一个清醒的现代人</a>
-                <p class="ori_prd dp_wrap_pprice_ori">￥49.00</p>
+                <a class="dq_ori_prd" href=""><img :src="wares[0].image"/></a>
+                <a class="ori_prd" href="">{{wares[0].name}}</a>
+                <p class="ori_prd dp_wrap_pprice_ori">￥{{wares[0].price}}</p>
             </div>
             <div class="scroll_wrap">
                 <!-- 搭配2 -->
-                <div class="dp_prd">
+                <div class="dp_prd" v-for="i in 3">
                     <div class="icon_plus">+</div>
                     <div class="dp_p_wrap">
-                        <a class="dp_wrap_pimg" href="" target="_blank"><img src="../../../assets/images/photos/img06.jpg"/></a>
-                        <a class="dp_wrap_pname" href="" target="_blank">桶川跟踪狂杀人事件</a>
+                        <a class="dp_wrap_pimg" href="" target="_blank"><img :src="wares[i].image"/></a>
+                        <a class="dp_wrap_pname" href="" target="_blank">{{wares[i].name}}</a>
                         <p class="dp_wrap_pprice">
                             <label>
-                                <input type="checkbox" data-price="199" data-item="570b1b2f5efb114c378b4575">
-                                ￥59.00
+                                <input type="checkbox" :data-price="wares[i].price" data-item="570b1b2f5efb114c378b4575">
+                                ￥{{wares[i].price}}
                             </label>
                         </p>
                     </div>
                 </div>
-                <!-- 搭配3 -->
-                <div class="dp_prd">
-                    <div class="icon_plus">+</div>
-                    <div class="dp_p_wrap">
-                        <a class="dp_wrap_pimg" href="" target="_blank"><img src="../../../assets/images/photos/img07.jpg"/></a>
-                        <a class="dp_wrap_pname" href="" target="_blank">认识世界：古代与中世</a>
-                        <p class="dp_wrap_pprice">
-                            <label>
-                                <input type="checkbox" data-price="199" data-item="570b1b2f5efb114c378b4575">
-                                ￥49.00
-                            </label>
-                        </p>
-                    </div>
-                </div>
-                <!-- 搭配4 -->
-                <div class="dp_prd">
-                    <div class="icon_plus">+</div>
-                    <div class="dp_p_wrap">
-                        <a class="dp_wrap_pimg" href="" target="_blank"><img src="../../../assets/images/photos/img08.jpg"/></a>
-                        <a class="dp_wrap_pname" href="" target="_blank">耶鲁大学公开课：政治</a>
-                        <p class="dp_wrap_pprice">
-                            <label>
-                                <input type="checkbox" data-price="199" data-item="570b1b2f5efb114c378b4575">
-                                ￥39.99
-                            </label>
-                        </p>
-                    </div>
-                </div>
-                <!-- 搭配5 -->
-                <!-- 产品结束 -->
             </div>
         </div>
     </div>
@@ -72,7 +42,21 @@
 
 <script>
     export default {
-        name: "Gdetail"
+        name: "Gdetail",
+        props:{
+            wares:{
+                type:Array,
+                default(){
+                    return []
+                }
+            }
+        },
+        data(){
+            return {
+                count:0,
+                total:0
+            }
+        }
     }
 </script>
 

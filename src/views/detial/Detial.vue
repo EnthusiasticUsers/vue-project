@@ -1,17 +1,19 @@
 <template>
-    <div>
-        <nav-menu></nav-menu>
-        <div class="showall">
-            <!--left -->
-            <show-bot :good="goods[this.$route.query.fid].wares[this.$route.query.cid]"></show-bot>
-            <!--conet -->
-            <tb-property :good="goods[this.$route.query.fid].wares[this.$route.query.cid]" :title="titles"></tb-property>
-            <!--right -->
-            <ext-info ></ext-info>
+    <transition>
+        <div>
+            <nav-menu></nav-menu>
+            <div class="showall">
+                <!--left -->
+                <show-bot :good="goods[this.$route.query.fid].wares[this.$route.query.cid]"></show-bot>
+                <!--conet -->
+                <tb-property :good="goods[this.$route.query.fid].wares[this.$route.query.cid]" :title="titles"></tb-property>
+                <!--right -->
+                <ext-info :store="stores[this.$route.query.fid][this.$route.query.cid]" :seller="sellers"></ext-info>
+            </div>
+            <!-- 推荐搭配 -->
+            <gdetail :wares="goods[this.$route.query.fid].wares"></gdetail>
         </div>
-        <!-- 推荐搭配 -->
-        <gdetail></gdetail>
-    </div>
+    </transition>
 </template>
 
 <script>
@@ -20,6 +22,7 @@
     import TbProperty from "./childComps/TbProperty";
     import ExtInfo from "./childComps/ExtInfo";
     import Gdetail from "./childComps/Gdetail";
+
     export default {
         name: "Detial",
         components:{
@@ -280,6 +283,23 @@
                                 "price":39.99,
                                 "image":require("assets/goods/2.jpg"),
                                 "link":"/detial",
+                                "childImage":[
+                                    {
+                                        "image":require("assets/goods/good2/1.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/2.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/3.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/4.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/5.png")
+                                    },
+                                ],
                                 "sales":37,
                                 "assess":40,
                                 "stock":199,
@@ -291,6 +311,23 @@
                                 "price":39.99,
                                 "image":require("assets/goods/2.jpg"),
                                 "link":"/detial",
+                                "childImage":[
+                                    {
+                                        "image":require("assets/goods/good2/1.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/2.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/3.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/4.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/5.png")
+                                    },
+                                ],
                                 "sales":37,
                                 "assess":40,
                                 "stock":199,
@@ -302,6 +339,23 @@
                                 "price":39.99,
                                 "image":require("assets/goods/2.jpg"),
                                 "link":"/detial",
+                                "childImage":[
+                                    {
+                                        "image":require("assets/goods/good2/1.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/2.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/3.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/4.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/5.png")
+                                    },
+                                ],
                                 "sales":37,
                                 "assess":40,
                                 "stock":199,
@@ -313,6 +367,23 @@
                                 "price":39.99,
                                 "image":require("assets/goods/2.jpg"),
                                 "link":"/detial",
+                                "childImage":[
+                                    {
+                                        "image":require("assets/goods/good2/1.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/2.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/3.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/4.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/5.png")
+                                    },
+                                ],
                                 "sales":37,
                                 "assess":40,
                                 "stock":199,
@@ -324,6 +395,23 @@
                                 "price":39.99,
                                 "image":require("assets/goods/2.jpg"),
                                 "link":"/detial",
+                                "childImage":[
+                                    {
+                                        "image":require("assets/goods/good2/1.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/2.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/3.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/4.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/5.png")
+                                    },
+                                ],
                                 "sales":37,
                                 "assess":40,
                                 "stock":199,
@@ -335,6 +423,23 @@
                                 "price":39.99,
                                 "image":require("assets/goods/2.jpg"),
                                 "link":"/detial",
+                                "childImage":[
+                                    {
+                                        "image":require("assets/goods/good2/1.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/2.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/3.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/4.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/5.png")
+                                    },
+                                ],
                                 "sales":37,
                                 "assess":40,
                                 "stock":199,
@@ -346,6 +451,23 @@
                                 "price":39.99,
                                 "image":require("assets/goods/2.jpg"),
                                 "link":"/detial",
+                                "childImage":[
+                                    {
+                                        "image":require("assets/goods/good2/1.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/2.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/3.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/4.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/5.png")
+                                    },
+                                ],
                                 "sales":37,
                                 "assess":40,
                                 "stock":199,
@@ -357,6 +479,23 @@
                                 "price":39.99,
                                 "image":require("assets/goods/2.jpg"),
                                 "link":"/detial",
+                                "childImage":[
+                                    {
+                                        "image":require("assets/goods/good2/1.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/2.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/3.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/4.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good2/5.png")
+                                    },
+                                ],
                                 "sales":37,
                                 "assess":40,
                                 "stock":199,
@@ -378,6 +517,23 @@
                                 "price":59.99,
                                 "image":require("assets/goods/3.jpg"),
                                 "link":"/detial",
+                                "childImage":[
+                                    {
+                                        "image":require("assets/goods/good3/1.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/2.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/3.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/4.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/5.png")
+                                    },
+                                ],
                                 "sales":37,
                                 "assess":40,
                                 "stock":199,
@@ -389,6 +545,23 @@
                                 "price":59.99,
                                 "image":require("assets/goods/3.jpg"),
                                 "link":"/detial",
+                                "childImage":[
+                                    {
+                                        "image":require("assets/goods/good3/1.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/2.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/3.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/4.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/5.png")
+                                    },
+                                ],
                                 "sales":37,
                                 "assess":40,
                                 "stock":199,
@@ -400,6 +573,23 @@
                                 "price":59.99,
                                 "image":require("assets/goods/3.jpg"),
                                 "link":"/detial",
+                                "childImage":[
+                                    {
+                                        "image":require("assets/goods/good3/1.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/2.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/3.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/4.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/5.png")
+                                    },
+                                ],
                                 "sales":37,
                                 "assess":40,
                                 "stock":199,
@@ -411,6 +601,23 @@
                                 "price":59.99,
                                 "image":require("assets/goods/3.jpg"),
                                 "link":"/detial",
+                                "childImage":[
+                                    {
+                                        "image":require("assets/goods/good3/1.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/2.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/3.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/4.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/5.png")
+                                    },
+                                ],
                                 "sales":37,
                                 "assess":40,
                                 "stock":199,
@@ -422,6 +629,23 @@
                                 "price":59.99,
                                 "image":require("assets/goods/3.jpg"),
                                 "link":"/detial",
+                                "childImage":[
+                                    {
+                                        "image":require("assets/goods/good3/1.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/2.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/3.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/4.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/5.png")
+                                    },
+                                ],
                                 "sales":37,
                                 "assess":40,
                                 "stock":199,
@@ -433,6 +657,23 @@
                                 "price":59.99,
                                 "image":require("assets/goods/3.jpg"),
                                 "link":"/detial",
+                                "childImage":[
+                                    {
+                                        "image":require("assets/goods/good3/1.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/2.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/3.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/4.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/5.png")
+                                    },
+                                ],
                                 "sales":37,
                                 "assess":40,
                                 "stock":199,
@@ -444,6 +685,23 @@
                                 "price":59.99,
                                 "image":require("assets/goods/3.jpg"),
                                 "link":"/detial",
+                                "childImage":[
+                                    {
+                                        "image":require("assets/goods/good3/1.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/2.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/3.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/4.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/5.png")
+                                    },
+                                ],
                                 "sales":37,
                                 "assess":40,
                                 "stock":199,
@@ -455,6 +713,23 @@
                                 "price":59.99,
                                 "image":require("assets/goods/3.jpg"),
                                 "link":"/detial",
+                                "childImage":[
+                                    {
+                                        "image":require("assets/goods/good3/1.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/2.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/3.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/4.png")
+                                    },
+                                    {
+                                        "image":require("assets/goods/good3/5.png")
+                                    },
+                                ],
                                 "sales":37,
                                 "assess":40,
                                 "stock":199,
@@ -465,13 +740,202 @@
                     }
                 ],
                 stores:[
-                    {
+                    [
+                        {
                         "name":"滴滴猪肉脯",
                         "logo":require("assets/images/ho_03.png"),
                         "grade":"初级店铺",
                         "telephone":"15012365897",
                         "location":"河南郑州市航海路"
-                    }
+                        },
+                        {
+                            "name":"滴滴猪肉脯",
+                            "logo":require("assets/images/ho_03.png"),
+                            "grade":"中级店铺",
+                            "telephone":"18269832976",
+                            "location":"浙江省绍兴市越城区"
+                        },
+                        {
+                            "name":"滴滴猪肉脯",
+                            "logo":require("assets/images/ho_03.png"),
+                            "grade":"高级店铺",
+                            "telephone":"13275892655",
+                            "location":"浙江省杭州市江干区"
+                        },
+                        {
+                            "name":"滴滴猪肉脯",
+                            "logo":require("assets/images/ho_03.png"),
+                            "grade":"初级店铺",
+                            "telephone":"15012365897",
+                            "location":"河南郑州市航海路"
+                        },
+                        {
+                            "name":"滴滴猪肉脯",
+                            "logo":require("assets/images/ho_03.png"),
+                            "grade":"初级店铺",
+                            "telephone":"15012365897",
+                            "location":"河南郑州市航海路"
+                        },
+                        {
+                            "name":"滴滴猪肉脯",
+                            "logo":require("assets/images/ho_03.png"),
+                            "grade":"初级店铺",
+                            "telephone":"15012365897",
+                            "location":"河南郑州市航海路"
+                        },
+                        {
+                            "name":"滴滴猪肉脯",
+                            "logo":require("assets/images/ho_03.png"),
+                            "grade":"初级店铺",
+                            "telephone":"15012365897",
+                            "location":"河南郑州市航海路"
+                        },
+                        {
+                            "name":"滴滴猪肉脯",
+                            "logo":require("assets/images/ho_03.png"),
+                            "grade":"初级店铺",
+                            "telephone":"15012365897",
+                            "location":"河南郑州市航海路"
+                        }
+                    ],
+                    [
+                        {
+                            "name":"叮咚小肉",
+                            "logo":require("assets/images/ho_03.png"),
+                            "grade":"中级店铺",
+                            "telephone":"19025874521",
+                            "location":"河南省洛阳市新安县"
+                        },
+                        {
+                            "name":"滴滴猪肉脯",
+                            "logo":require("assets/images/ho_03.png"),
+                            "grade":"初级店铺",
+                            "telephone":"15012365897",
+                            "location":"河南郑州市航海路"
+                        },
+                        {
+                            "name":"滴滴猪肉脯",
+                            "logo":require("assets/images/ho_03.png"),
+                            "grade":"初级店铺",
+                            "telephone":"15012365897",
+                            "location":"河南郑州市航海路"
+                        },
+                        {
+                            "name":"滴滴猪肉脯",
+                            "logo":require("assets/images/ho_03.png"),
+                            "grade":"初级店铺",
+                            "telephone":"15012365897",
+                            "location":"河南郑州市航海路"
+                        },
+                        {
+                            "name":"滴滴猪肉脯",
+                            "logo":require("assets/images/ho_03.png"),
+                            "grade":"初级店铺",
+                            "telephone":"15012365897",
+                            "location":"河南郑州市航海路"
+                        },
+                        {
+                            "name":"滴滴猪肉脯",
+                            "logo":require("assets/images/ho_03.png"),
+                            "grade":"初级店铺",
+                            "telephone":"15012365897",
+                            "location":"河南郑州市航海路"
+                        },
+                        {
+                            "name":"滴滴猪肉脯",
+                            "logo":require("assets/images/ho_03.png"),
+                            "grade":"初级店铺",
+                            "telephone":"15012365897",
+                            "location":"河南郑州市航海路"
+                        },
+                        {
+                            "name":"滴滴猪肉脯",
+                            "logo":require("assets/images/ho_03.png"),
+                            "grade":"初级店铺",
+                            "telephone":"15012365897",
+                            "location":"河南郑州市航海路"
+                        }
+                    ],
+                    [
+                        {
+                            "name":"滴滴猪肉脯",
+                            "logo":require("assets/images/ho_03.png"),
+                            "grade":"初级店铺",
+                            "telephone":"15012365897",
+                            "location":"河南郑州市航海路"
+                        },
+                        {
+                            "name":"松鼠零食",
+                            "logo":require("assets/images/ho_03.png"),
+                            "grade":"初级店铺",
+                            "telephone":"152136998971",
+                            "location":"河南洛阳市洛宁县"
+                        },
+                        {
+                            "name":"滴滴猪肉脯",
+                            "logo":require("assets/images/ho_03.png"),
+                            "grade":"初级店铺",
+                            "telephone":"15012365897",
+                            "location":"河南郑州市航海路"
+                        },
+                        {
+                            "name":"滴滴猪肉脯",
+                            "logo":require("assets/images/ho_03.png"),
+                            "grade":"初级店铺",
+                            "telephone":"15012365897",
+                            "location":"河南郑州市航海路"
+                        },
+                        {
+                            "name":"滴滴猪肉脯",
+                            "logo":require("assets/images/ho_03.png"),
+                            "grade":"初级店铺",
+                            "telephone":"15012365897",
+                            "location":"河南郑州市航海路"
+                        },
+                        {
+                            "name":"滴滴猪肉脯",
+                            "logo":require("assets/images/ho_03.png"),
+                            "grade":"初级店铺",
+                            "telephone":"15012365897",
+                            "location":"河南郑州市航海路"
+                        },
+                        {
+                            "name":"滴滴猪肉脯",
+                            "logo":require("assets/images/ho_03.png"),
+                            "grade":"初级店铺",
+                            "telephone":"15012365897",
+                            "location":"河南郑州市航海路"
+                        },
+                        {
+                            "name":"滴滴猪肉脯",
+                            "logo":require("assets/images/ho_03.png"),
+                            "grade":"初级店铺",
+                            "telephone":"15012365897",
+                            "location":"河南郑州市航海路"
+                        }
+                    ]
+                ],
+                sellers:[
+                    {
+                        "name":"联系卖家",
+                        "image":require("assets/images/phon.png"),
+                        "link":"#"
+                    },
+                    {
+                        "name":"咨询卖家",
+                        "image":require("assets/images/qq.png"),
+                        "link":"#"
+                    },
+                    {
+                        "name":"进店逛逛",
+                        "image":require("assets/images/shop-line.png"),
+                        "link":"#"
+                    },
+                    {
+                        "name":"关注店铺",
+                        "image":require("assets/images/staar.png"),
+                        "link":"#"
+                    },
                 ],
                 titles:{
                     "sales":"累计售出",
@@ -501,5 +965,20 @@
         width: 1240px;
         margin: 0 auto;
         margin-top: 15px;
+    }
+    .v-enter{
+        opacity:0;
+    }
+    .v-enter-to{
+        opacity: 1;
+    }
+    .v-enter-active{
+        transition: opacity 1s;
+    }
+    .v-leave-active{
+        transition: transform 1s;
+    }
+    .v-leave-to{
+        transform: translateX(10px);
     }
 </style>
