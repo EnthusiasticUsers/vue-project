@@ -44,9 +44,9 @@
         list-style: none;
     }
     .foot{
-        height: 300px;
         background-color: #ddd;
-        margin-top: 30px;
+        position: relative;
+        bottom: 0;
     }
     .foot .main{
         width: 1050px;

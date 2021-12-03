@@ -14,6 +14,8 @@
             </div>
             <!-- 推荐搭配 -->
             <gdetail :wares="goods[this.$route.query.fid].wares"></gdetail>
+            <!--页脚-->
+            <footer-menu :menu="footerMenu" :qrcode="qrcode"></footer-menu>
         </div>
 </template>
 
@@ -24,6 +26,7 @@
     import ExtInfo from "./childComps/ExtInfo";
     import Gdetail from "./childComps/Gdetail";
     import goCart from "../../components/common/cart/goCart";
+    import FooterMenu from "../../components/common/footer/FooterMenu";
 
     export default {
         name: "Detial",
@@ -33,7 +36,8 @@
             TbProperty,
             ExtInfo,
             Gdetail,
-            goCart
+            goCart,
+            FooterMenu
         },
         data(){
             return {
@@ -955,6 +959,109 @@
                             "image":require("assets/images/me.png")
                         }
                     },
+                footerMenu:[
+                    {
+                        "title":"预约点餐服务",
+                        "icon":"el-icon-phone",
+                        "childs":[
+                            {
+                                "name":"帮助中心"
+                            },
+                            {
+                                "name":"账户管理"
+                            },
+                            {
+                                "name":"购物指南"
+                            },
+                            {
+                                "name":"订单操作"
+                            }
+                        ]
+                    },
+                    {
+                        "title":"最新食品预览",
+                        "icon":"el-icon-picture",
+                        "childs":[
+                            {
+                                "name":"服务支持"
+                            },
+                            {
+                                "name":"售后政策"
+                            },
+                            {
+                                "name":"自助服务"
+                            },
+                            {
+                                "name":"相关下载"
+                            }
+                        ]
+                    },
+                    {
+                        "title":"关于我们",
+                        "icon":"el-icon-user-solid",
+                        "childs":[
+                            {
+                                "name":"加入我们",
+                            },
+                            {
+                                "name":"了解我们"
+                            },
+                            {
+                                "name":"投资者关系"
+                            },
+                            {
+                                "name":"企业社会责任"
+                            }
+                        ]
+                    },
+                    {
+                        "title":"帮助中心",
+                        "icon":"el-icon-s-help",
+                        "childs":[
+                            {
+                                "name":"礼物码"
+                            },
+                            {
+                                "name":"F码通道"
+                            },
+                            {
+                                "name":"防伪查询"
+                            },
+                            {
+                                "name":"人工客服"
+                            }
+                        ]
+                    },
+                    {
+                        "title":"线下门店",
+                        "icon":"el-icon-s-shop",
+                        "childs":[
+                            {
+                                "name":"鱼米之乡"
+                            },
+                            {
+                                "name":"服务网点"
+                            },
+                            {
+                                "name":"授权餐饮店"
+                            },
+                            {
+                                "name":"诚信经营"
+                            }
+                        ]
+                    }
+
+                ],
+                qrcode:[
+                    {
+                        "image":require("assets/qrcodes/qrcode.jpg"),
+                        "link":"https://www.mi.com/"
+                    },
+                    {
+                        "image":require("assets/qrcodes/qrcode.jpg"),
+                        "link":"https://www.mi.com/"
+                    }
+                ],
 
             }
         },

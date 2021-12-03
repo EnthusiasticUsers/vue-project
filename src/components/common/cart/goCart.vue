@@ -24,7 +24,7 @@
         position: fixed;
         top:20%;
         left:50%;
-        width: 150px;
+        padding: 8px;
         height:40px;
         z-index: 999;
         background-color: black;
