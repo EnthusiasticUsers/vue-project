@@ -1,6 +1,5 @@
 <template>
-
-    <div class="cal-cart">
+    <div class="cal-cart" v-show="goods.length !== 0">
         <div class="left">
             <div>
                 <input type="checkbox" id="all">
@@ -9,7 +8,7 @@
             </div>
         </div>
         <div class="right">
-            <span>已选商品<span class="font">{{goods.length}}</span>件 合计: <span class="font">￥{{total}}</span></span>
+            <span>已选商品<span class="font">{{num}}</span>件 合计: <span class="font">￥{{total}}</span></span>
             <button @click="settlement">结算</button>
         </div>
     </div>
@@ -43,10 +42,17 @@
         computed:{
             total(){
                 let total = 0;
-                this.goods.forEach((item) => {
+                this.goods.forEach( item => {
                    total += Number(item.number) * Number(item.price);
                 });
                 return Math.floor(total * 100) / 100;
+            },
+            num(){
+                let num = 0;
+                this.goods.forEach(item => {
+                    num += Number(item.number);
+                });
+                return num;
             }
         }
     }

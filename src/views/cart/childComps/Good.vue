@@ -1,6 +1,6 @@
 <template>
-    <div class="cart">
-        <table>
+    <div class="cart" v-if="goods.length !== 0">
+        <table >
             <tr class="table-th">
                 <th><input type="checkbox">全选</th>
                 <th>商品信息</th>
@@ -42,6 +42,7 @@
             </tr>
         </table>
     </div>
+    <div v-else><el-empty description="购物车空空如也,什么也没有!" :image-size="600"></el-empty></div>
 </template>
 
 <script>
