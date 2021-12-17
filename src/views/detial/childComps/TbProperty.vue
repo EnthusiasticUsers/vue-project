@@ -24,8 +24,8 @@
             <span class="Hgt">{{title.stock}}（{{good.stock}}）</span>
         </div>
         <div class="nobdr-btns">
-            <button class="addcart hu" @click="sendGood('加入购物车成功')"><i class="el-icon-shopping-cart-full"></i>{{title.toCart}}</button>
-            <button class="addcart yh" @click="sendGood('购 买 成 功')"><i class="el-icon-star-on"></i>{{title.emp}}</button>
+            <button class="addcart hu" @click="sendGood"><i class="el-icon-shopping-cart-full"></i>{{title.toCart}}</button>
+            <button class="addcart yh" @click="sendGood"><i class="el-icon-star-on"></i>{{title.emp}}</button>
         </div>
         <div class="guarantee">
             <span>{{title.postage.msg}} <a href=""><img :src="title.postage.image"/></a></span>
@@ -52,7 +52,10 @@
         },
         data(){
             return {
-                goodnumber:1
+                goodnumber:1,
+                fid:this.$route.query.fid,
+                cid:this.$route.query.cid,
+                goods:JSON.parse(window.localStorage.getItem("goods")) || []
             }
         },
         methods:{
@@ -72,10 +75,33 @@
                     }
                 }
             },
-            sendGood(msg){
-                this.good.number = this.goodnumber;
-                this.good.msg = msg;
-                this.$emit("sendGood",this.good);
+            sendGood(){
+                var item = this.getGood();
+                if(item){
+                    console.log("yes:" + this.good);
+                    item.number =  Number(item.number) + this.goodnumber;
+                    item.msg = "加入购物车成功";
+                    this.$emit("sendGood", item);
+                }else{
+                    console.log("error:" + this.good);
+                    this.good.fid = this.$route.query.fid;
+                    this.good.cid = this.$route.query.cid;
+                    this.good.number = this.goodnumber;
+                    this.good.msg = "加入购物车成功";
+                    this.goods.push(this.good);
+                    this.$emit("sendGood", this.good);
+                }
+
+                window.localStorage.setItem("goods", JSON.stringify(this.goods));
+            },
+            getGood(){
+                var good = null;
+                this.goods.forEach(item => {
+                    if(item.fid === this.fid && item.cid === this.cid){
+                        good = item;
+                    }
+                });
+                return good;
             }
         }
     }

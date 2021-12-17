@@ -1,6 +1,6 @@
 <template>
         <div class="cart" >
-            <span>{{good.msg}}</span>
+            <span>加入购物车成功</span>
         </div>
 </template>
 

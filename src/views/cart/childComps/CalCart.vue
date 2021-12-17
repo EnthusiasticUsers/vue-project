@@ -1,4 +1,5 @@
 <template>
+
     <div class="cal-cart">
         <div class="left">
             <div>
@@ -9,14 +10,19 @@
         </div>
         <div class="right">
             <span>已选商品<span class="font">{{goods.length}}</span>件 合计: <span class="font">￥{{total}}</span></span>
-            <button>结算</button>
+            <button @click="settlement">结算</button>
         </div>
     </div>
 </template>
 
 <script>
+    import goCart from "../../../components/common/cart/goCart";
+
     export default {
         name: "CalCart",
+        components:{
+            goCart
+        },
         props:{
             goods:{
                 type:Array,
@@ -26,18 +32,21 @@
                 }
             }
         },
-        data(){
-           return {
-
-           }
+        methods:{
+            settlement(){
+                this.goods = [];
+                window.localStorage.setItem("goods",JSON.stringify(this.goods));
+                this.$emit("settlement", this.goods);
+                alert("结算成功");
+            }
         },
         computed:{
             total(){
                 let total = 0;
-                for(var i = 0; i < this.goods.length; i++){
-                    total += this.goods[i].price;
-                }
-                return total;
+                this.goods.forEach((item) => {
+                   total += Number(item.number) * Number(item.price);
+                });
+                return Math.floor(total * 100) / 100;
             }
         }
     }

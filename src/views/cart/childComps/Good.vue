@@ -29,14 +29,14 @@
                 </td>
                 <td>
                     <div class="good-count fly">
-                        <button class="reduce-btn">-</button>
-                        <span class="count">{{item.count}}</span>
-                        <button class="add-btn">+</button>
+                        <button class="reduce-btn" @click="reduce(id)">-</button>
+                        <span class="count">{{item.number}}</span>
+                        <button class="add-btn" @click="add(id)">+</button>
                     </div>
                 </td>
                 <td>
                     <div class="total-count fly">
-                        <span>合计:{{item.count*3}}</span>
+                        <span>合计: ￥{{total(item.number, item.price)}}</span>
                     </div>
                 </td>
             </tr>
@@ -54,12 +54,44 @@
                     return []
                 }
             }
+        },
+        methods:{
+            total(n, p){
+                return Math.floor(Number(n) * Number(p) * 100) / 100;
+            },
+            add(id){
+                let n = this.goods[id].number;
+                let s = Number(this.goods[id].stock);
+                if(n < s){
+                    n++;
+                }else{
+                    n = s;
+                }
+                this.goods[id].number = n;
+                //window.localStorage.setItem("goods", this.goods);
+                this.$emit("changeNum", this.goods);
+            },
+            reduce(id){
+                let n = this.goods[id].number;
+                if(n > 1){
+                    n--;
+                }else{
+                    n = 1;
+                }
+                this.goods[id].number = n;
+                //window.localStorage.setItem("goods", this.goods);
+                this.$emit("changeNum", this.goods);
+            }
         }
     }
 </script>
 
 <style scoped>
     *{margin: 0;padding: 0;}
+    .cart{
+        height: 800px;
+        overflow: auto;
+    }
     table{
         width: 100%;
         border-collapse: collapse;
